@@ -13,6 +13,6 @@ export class AppController {
   @Post('/hooks/sepay-webhook')
   sepayWebhook(@Body() body: Record<string, any>) {
     console.log('sepay-webhook body:', JSON.stringify(body, null, 2));
-    return { received: true };
+    return { success: true };
   }
 }
