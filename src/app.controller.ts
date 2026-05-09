@@ -41,7 +41,7 @@ export class AppController {
   @Get('/hooks/sepay-transactions')
   async getTransactions() {
     const token =
-      'ZU1AWUZVOO7JM8KKG3SXDCB6S2RMGCLNCKG9RLEU4SDSANPQUHTHIMHEARJPM0WV';
+      'PGQD2GS4CMUOJIYCQHQ07PTWLAMKEFIVBTHTY0XLEWUACGF7ZW5DABG1NNYVKFHV';
 
     const res = await fetch(
       'https://my.sepay.vn/userapi/transactions/list?limit=20',
