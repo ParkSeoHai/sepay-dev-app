@@ -37,4 +37,23 @@ export class AppController {
     const qrUrl = `https://qr.sepay.vn/img?${params}`;
     return qrUrl;
   }
+
+  @Get('/hooks/sepay-transactions')
+  async getTransactions() {
+    const token =
+      'ZU1AWUZVOO7JM8KKG3SXDCB6S2RMGCLNCKG9RLEU4SDSANPQUHTHIMHEARJPM0WV';
+
+    const res = await fetch(
+      'https://my.sepay.vn/userapi/transactions/list?limit=20',
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      },
+    );
+
+    const data = await res.json();
+    return data;
+  }
 }
