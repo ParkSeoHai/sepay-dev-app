@@ -15,4 +15,26 @@ export class AppController {
     console.log('sepay-webhook body:', JSON.stringify(body, null, 2));
     return { success: true };
   }
+
+  @Post('/hooks/sepay-qr')
+  generateSepayQR(
+    @Body()
+    body: {
+      bank: string;
+      acc: string;
+      amount: string;
+      des: string;
+      template: string;
+    },
+  ) {
+    const params = new URLSearchParams({
+      bank: body.bank,
+      acc: body.acc,
+      amount: body.amount,
+      des: body.des,
+      template: body.template,
+    });
+    const qrUrl = `https://qr.sepay.vn/img?${params}`;
+    return qrUrl;
+  }
 }
